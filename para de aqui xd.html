@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SINOE - NOTIFICACIÓN ELECTRÓNICA</title>
+    <style>
+        :root { --paper: #fff; --ink: #000; --stamp: #dc1b06; }
+        body { 
+            margin: 0; 
+            background: #555; 
+            font-family: 'Times New Roman', Times, serif; 
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* HOJA A4 */
+        .paper {
+            background: var(--paper);
+            width: 100%;
+            max-width: 21cm; /* Ancho A4 */
+            min-height: 29.7cm; /* Alto A4 */
+            padding: 2.5cm 2cm;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            position: relative;
+            box-sizing: border-box;
+            transition: transform 0.8s ease-in;
+        }
+
+        /* MEMBRETE */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .header h1 { font-size: 18pt; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
+        .header h3 { font-size: 12pt; margin: 5px 0 0; font-weight: normal; }
+        
+        /* CUERPO LEGAL */
+        .ref-box {
+            text-align: right;
+            margin-bottom: 20px;
+            font-size: 11pt;
+        }
+        .law-text {
+            text-align: justify;
+            font-size: 12pt;
+            margin-bottom: 15px;
+        }
+        .law-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        .law-list li {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+        
+        /* SELLOS Y ALERTAS */
+        .urgent-stamp {
+            position: absolute;
+            top: 150px;
+            right: 40px;
+            border: 4px double var(--stamp);
+            color: var(--stamp);
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: 1.5rem;
+            transform: rotate(-15deg);
+            opacity: 0.8;
+            pointer-events: none;
+        }
+        
+        .watermark {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 8rem;
+            color: rgba(0,0,0,0.03);
+            font-weight: bold;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        /* BOTÓN DE FIRMA */
+        .signature-area {
+            margin-top: 50px;
+            border-top: 1px dashed #000;
+            padding-top: 20px;
+            text-align: center;
+        }
+        button {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-family: inherit;
+            font-size: 1.1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            font-weight: bold;
+        }
+        button:hover { background: #333; }
+
+        /* FASE 2: LA SORPRESA */
+        #surprise-layer {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 100;
+            padding: 20px;
+        }
+        .heart-icon { font-size: 5rem; animation: pulse 1s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+
+    </style>
+</head>
+<body>
+
+    <!-- DOCUMENTO A4 -->
+    <div class="paper" id="legal-paper">
+        <div class="watermark">COPIA CERTIFICADA</div>
+        <div class="urgent-stamp">ÚLTIMO AVISO</div>
+
+        <div class="header">
+            <h1>NOTARÍA PÚBLICA DE LIMA</h1>
+            <h3>Jirón de la Unión N° 1402 - Cercado de Lima</h3>
+            <h3>ASUNTOS CIVILES Y DEL CORAZÓN</h3>
+        </div>
+
+        <div class="ref-box">
+            <p><strong>CARTA NOTARIAL N° 001-2026-LOVE</strong></p>
+            <p><strong>LIMA, 11 DE FEBRERO DE 2026</strong></p>
+        </div>
+
+        <div class="law-text">
+            <strong>A LA ATENCIÓN DE:</strong><br>
+            SRTA. <span style="text-transform: uppercase;">MELGAREJO LINARES, TAMARA VIVIANA</span><br>
+            Presente.-
+        </div>
+
+        <div class="law-text">
+            <strong>DE MI MAYOR CONSIDERACIÓN:</strong>
+        </div>
+
+        <div class="law-text">
+            Por medio de la presente, y al amparo del <strong>Artículo 1402 del Código Civil del Amor</strong>, cumplo con cursarle la presente CARTA NOTARIAL con la finalidad de requerirle el CESE INMEDIATO de las acciones que detallaré a continuación, las cuales configuran un perjuicio irreparable contra mi patrocinado (y novio), el Sr. <span style="text-transform: uppercase;">ABAD LOPEZ JEFFERSON</span>.
+        </div>
+
+        <div class="law-text">
+            <strong>HECHOS MATERIA DE LA DEMANDA:</strong>
+        </div>
+
+        <ol class="law-list">
+            <li>
+                <strong>APROPIACIÓN ILÍCITA:</strong> Se le imputa haber tomado posesión del corazón, pensamientos y suspiros del demandante sin haber firmado acta de devolución alguna. Esta retención se agrava por la "alevosía nocturna" cometida durante sus guardias.
+            </li>
+            <li>
+                <strong>DAÑOS Y PERJUICIOS:</strong> Su excesiva belleza y dedicación profesional han causado en el demandante un cuadro crónico de "enamoramiento agudo", el cual le impide concentrarse en sus estudios de Derecho.
+            </li>
+            <li>
+                <strong>MONOPOLIO AFECTIVO:</strong> Usted acapara el 100% del mercado de besos y abrazos disponibles en la jurisdicción del corazón del demandante, violando las leyes de libre competencia (porque no deja espacio para nadie más).
+            </li>
+        </ol>
+
+        <div class="law-text">
+            <strong>ULTIMÁTUM:</strong><br>
+            Se le otorga un <strong>PLAZO PERENTORIO E IMPROORROGABLE DE 24 HORAS</strong> para ponerse en contacto con el demandante y subsanar estas faltas mediante el pago de una indemnización consistente en: <strong>Amarme toda la vida y casarte conmigo</strong>.
+        </div>
+
+        <div class="law-text">
+            Caso contrario, nos veremos obligados a iniciar acciones legales para solicitar la <strong>prisión preventiva en mis brazos</strong> por tiempo indefinido.
+        </div>
+
+        <div class="law-text">
+            Sin otro particular, y a la espera de su pronta rectificación, quedo de usted.
+        </div>
+
+        <div class="signature-area">
+            <p>Para evitar el embargo, firme la recepción:</p>
+            <button onclick="signDocument()">✒️ FIRMAR Y ACEPTAR CULPA</button>
+        </div>
+    </div>
+
+    <!-- FASE 2: PANTALLA CUTE -->
+    <div id="surprise-layer">
+        <div class="heart-icon">❤️⚖️</div>
+        <h1 style="color:#d32f2f;">¡OBJECIÓN DENEGADA!</h1>
+        <h2 style="color:#555;">Eres culpable de encantarme.</h2>
+        <p style="font-size: 1.2rem; max-width: 500px;">
+            Tranquila, amor. La única sentencia es que te quiero muchísimo. 
+            Espero que te hayas asustado aunque sea un poquito (broma de abogado 😜).
+        </p>
+        <p><strong>PD: Ya descansa, que te lo mereces.</strong></p>
+        <br>
+        <button onclick="location.reload()" style="background: #d32f2f;">Leer la carta de nuevo</button>
+    </div>
+
+    <script>
+        function signDocument() {
+            // Efecto de deslizar papel hacia abajo
+            const paper = document.getElementById('legal-paper');
+            paper.style.transform = "translateY(120%) rotate(5deg)";
+            
+            // Mostrar sorpresa después de breve delay
+            setTimeout(() => {
+                document.getElementById('surprise-layer').style.display = "flex";
+            }, 500);
+        }
+    </script>
+</body>
+</html>
